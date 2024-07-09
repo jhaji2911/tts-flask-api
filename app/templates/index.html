@@ -156,13 +156,14 @@
         document.querySelector("#result").classList.add("hidden")
         toggleLoader()
         let data = new FormData(e.target)
+        console.log('event->', data)
             e.preventDefault()
-            if( !grecaptcha.getResponse(captha) ){
-                alert("Fill the recaptcha please !")
-                toggleLoader()
-                return;
-            }
-            fetch("/call/martha", {
+            // if( !grecaptcha.getResponse(captha) ){
+            //     alert("Fill the recaptcha please !")
+            //     toggleLoader()
+            //     return;
+            // }
+            fetch("/synthesize", {
                 method: 'POST', 
                 body: data
             }).then(async (response) => {
